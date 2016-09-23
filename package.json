@@ -1,11 +1,10 @@
 {
   "name": "browser-game-loop",
-  "version": "0.0.0-semantic-release",
   "description": "Game loop for browser",
   "main": "gameLoop.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cstuncsik/browser-game-loop.git"
+    "url": "https://github.com/cstuncsik/browser-game-loop.git"
   },
   "keywords": [
     "browser",
