@@ -1,0 +1,17 @@
+{
+  "name": "browser-game-loop",
+  "version": "1.0.0",
+  "description": "Game loop for browser",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cstuncsik/browser-game-loop.git"
+  },
+  "keywords": [],
+  "author": "Csaba Tuncsik <csaba.tuncsik@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cstuncsik/browser-game-loop/issues"
+  },
+  "homepage": "https://github.com/cstuncsik/browser-game-loop#readme"
+}
