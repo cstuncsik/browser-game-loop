@@ -1,4 +1,4 @@
-requirejs(['../index'], function (createLoop) {
+requirejs(['../src/gameLoop'], function (createLoop) {
 
     var box = document.getElementById('box'),
         boxRotation = 0,

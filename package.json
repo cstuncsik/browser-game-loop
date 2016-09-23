@@ -1,17 +1,39 @@
 {
   "name": "browser-game-loop",
-  "version": "1.0.0",
+  "version": "0.0.0-semantic-release",
   "description": "Game loop for browser",
-  "main": "index.js",
+  "main": "gameLoop.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cstuncsik/browser-game-loop.git"
   },
-  "keywords": [],
+  "keywords": [
+    "browser",
+    "game",
+    "main",
+    "loop"
+  ],
   "author": "Csaba Tuncsik <csaba.tuncsik@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cstuncsik/browser-game-loop/issues"
   },
-  "homepage": "https://github.com/cstuncsik/browser-game-loop#readme"
+  "homepage": "https://github.com/cstuncsik/browser-game-loop#readme",
+  "scripts": {
+    "commit": "git-cz",
+    "build": "uglifyjs src/gameLoop.js --screw-ie8 -m -o gameLoop.js",
+    "prepublish": "npm run compile",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "devDependencies": {
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "semantic-release": "^4.3.5",
+    "uglify-js": "^2.7.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
 }
