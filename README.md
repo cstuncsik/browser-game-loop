@@ -83,3 +83,19 @@ loop.setSlow(2);
 | **getFps**         | Function | *Get FPS* |
 | **getElapsedTime** | Function | *Get elapsed time* |
 | **setSlow**        | Function(slow:Number) | *Set slow motion coefficient* |
+
+#### Inspiring blogs, posts
+
+[Javascript Game Foundations - The Game Loop](http://codeincomplete.com/posts/javascript-game-foundations-the-game-loop/)
+
+[deWiTTERS Game Loop](http://www.koonsolo.com/news/dewitters-gameloop/)
+
+[The Curious Case of Casey and The Clearly Deterministic Contraptions](http://gamesfromwithin.com/casey-and-the-clearly-deterministic-contraptions)
+
+[GAFFER ON GAMES - Fix Your Timestep!](http://gafferongames.com/game-physics/fix-your-timestep/)
+
+[A Detailed Explanation of JavaScript Game Loops and Timing](http://www.isaacsukin.com/news/2015/01/detailed-explanation-javascript-game-loops-and-timing)
+
+[Game Loop](http://gameprogrammingpatterns.com/game-loop.html)
+
+
