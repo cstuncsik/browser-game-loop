@@ -37,7 +37,7 @@
             input();
             while (lag >= slowStep) {
                 lag -= slowStep;
-                update(step);
+                update(step/slowStep);
             }
             frameTime += (delta - frameTime) / fpsFilterStrength;
             render();

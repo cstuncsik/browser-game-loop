@@ -25,11 +25,9 @@ requirejs(['../src/gameLoop'], function (createLoop) {
 
     function input() {
         if (mouseDown) {
-            velocity *= 1.0005;
-            direction = 1;
+            loop.setSlow(3);
         } else {
-            velocity /= 1.0005;
-            direction = -1;
+            loop.setSlow(1);
         }
     }
 
