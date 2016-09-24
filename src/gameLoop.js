@@ -21,6 +21,9 @@
             beginning = then,
             fpsFilterStrength = options.fpsFilterStrength || 20,
             frameTime = 0,
+            first = false,
+            slow = options.slow || 1,
+            slowStep = slow * step,
             update = options.update,
             render = options.render,
             input = options.input,
@@ -32,16 +35,21 @@
             then = now;
             lag += delta;
             input();
-            while (lag >= step) {
+            while (lag >= slowStep) {
+                lag -= slowStep;
                 update(step);
-                lag -= step;
             }
             frameTime += (delta - frameTime) / fpsFilterStrength;
             render();
         }
 
         function start() {
-            requestAnimationFrame(frame);
+            then = performance.now();
+            if(!first){
+                first = true;
+                beginning = then;
+            }
+            rafId = requestAnimationFrame(frame);
         }
 
         function stop() {
@@ -56,11 +64,16 @@
             return (then - beginning) / s;
         }
 
+        function setSlow(slow){
+            slowStep = slow * step;
+        }
+
         return {
             start: start,
             stop: stop,
             getFps: getFps,
-            getElapsedTime: getElapsedTime
+            getElapsedTime: getElapsedTime,
+            setSlow: setSlow
         };
     }
 }));
