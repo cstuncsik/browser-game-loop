@@ -27,7 +27,7 @@ var loop = createGameLoop({
     fpsFilterStrength: 20,
     slow: 1,
     input: function(){},
-    update: function(){},
+    update: function(step){},
     render: function(){}
 });
 ```
