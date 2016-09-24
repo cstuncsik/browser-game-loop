@@ -46,7 +46,7 @@ createGameLoop(options:Object) => Object
 
 ```js
 var loop = createGameLoop({
-    fps: 30,
+    updateTimeStep: 1000 / 30,
     fpsFilterStrength: 20,
     slow: 1,
     input: function(){},
