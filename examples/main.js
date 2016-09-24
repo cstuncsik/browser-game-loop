@@ -9,7 +9,7 @@ requirejs(['../src/gameLoop'], function (createLoop) {
         elapsedTimeDisplay = document.getElementById('elapsedTimeDisplay');
 
     var loop = createLoop({
-        fps: 30,
+        updateTimeStep: 1000 / 30,
         input: input,
         update: update,
         render: render

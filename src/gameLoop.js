@@ -12,9 +12,8 @@
 }(function () {
     return function (options) {
         'use strict';
-        var s = 1000,
-            fps = options.fps || 30,
-            step = s / fps,
+        var sec = 1000,
+            updateTimeStep = options.updateTimeStep || sec / 30,
             delta = 0,
             lag = 0,
             then = performance.now(),
@@ -23,7 +22,7 @@
             frameTime = 0,
             first = false,
             slow = options.slow || 1,
-            slowStep = slow * step,
+            slowStep = slow * updateTimeStep,
             update = options.update,
             render = options.render,
             input = options.input,
@@ -33,11 +32,11 @@
             rafId = requestAnimationFrame(frame);
             delta = now - then;
             then = now;
-            lag += delta;
+            lag += Math.min(sec, delta);
             input();
             while (lag >= slowStep) {
                 lag -= slowStep;
-                update(step/slowStep);
+                update(updateTimeStep/slowStep);
             }
             frameTime += (delta - frameTime) / fpsFilterStrength;
             render();
@@ -57,15 +56,15 @@
         }
 
         function getFps() {
-            return s / frameTime;
+            return sec / frameTime;
         }
 
         function getElapsedTime() {
-            return (then - beginning) / s;
+            return (then - beginning) / sec;
         }
 
         function setSlow(slow){
-            slowStep = slow * step;
+            slowStep = slow * updateTimeStep;
         }
 
         return {

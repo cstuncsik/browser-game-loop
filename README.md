@@ -11,6 +11,29 @@ A very minimal game loop for browser games.
 
 It's working with fixed update time step and variable rendering.
 
+## Loop execution model
+
+```
+FRAME
+
+|---<<<--------------------<<<------------------------<<<---------------------<<<---|
+|                         |---<<<------------------<<<---|                          |
+|                         |                              |                          |
+|         |---------|     |         |----------|         |     |----------|         |
+|         |         |     |--->>>---|          |--->>>---|     |          |         |
+|--->>>---| input() |------>>>------| update() |------>>>------| render() |--->>>---|
+          |         |               |          |               |          |
+          |---------|               |----------|               |----------|
+```
+
+```
+TIMELINE
+
+input  : |    |   |    |  |   |    |    |   |  |   |  |    |  |    |   |  
+update :  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+render :   |    |   |    |  |   |    |    |   |  |   |  |    |  |    |   |
+```
+
 ## API
 
 ### Factory function
@@ -32,15 +55,15 @@ var loop = createGameLoop({
 });
 ```
 
-|                       |          |             |          |
-| --------------------- | -------- | ----------- | -------- |
-| **Property**          | **Type** | **Default** | **Desc** |
-| **fps**               | Number   | 30          | *Sets update time step to a fixed value (actually doesn't affect render frequency but update, 30 means ~33ms time step)* |
-| **fpsFilterStrength** | Number   | 20          | *How often should FPS measurement change (1 means every frame)* |
-| **slow**              | Number   | 1           | *Slow motion coefficient (the bigger the slower)* |
-| **input**             | Function | N/A         | *This function is responsible for processing input (runs once per frame)* |
-| **update**            | Function(step:Miliseconds) | N/A         | *This function is responsible for updating game objects' properties, physics etc... (can run more than once per frame)* |
-| **render**            | Function | N/A         | *This function is responsible for drawing game objects (runs once per frame)* |
+|                       |          |                 |          |
+| --------------------- | -------- | --------------- | -------- |
+| **Property**          | **Type** | **Default**     | **Desc** |
+| **updateTimeStep**    | Number   | 1000/30 ~33ms   | *Sets update time step to a fixed value* |
+| **fpsFilterStrength** | Number   | 20              | *How often should FPS measurement change (1 means every frame)* |
+| **slow**              | Number   | 1               | *Slow motion coefficient (the bigger the slower)* |
+| **input**             | Function | N/A             | *This function is responsible for processing input* |
+| **update**            | Function(updateTimeStep:Number) | N/A         | *This function is responsible for updating game objects' properties, physics etc...* |
+| **render**            | Function | N/A             | *This function is responsible for drawing game objects* |
 
 #### Returned *object*
 
