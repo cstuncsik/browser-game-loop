@@ -51,7 +51,7 @@ var loop = createGameLoop({
     slow: 1,
     input: function(){},
     update: function(step){},
-    render: function(){}
+    render: function(interp){}
 });
 ```
 
