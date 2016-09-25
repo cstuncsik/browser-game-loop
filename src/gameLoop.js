@@ -16,7 +16,8 @@
             updateTimeStep = options.updateTimeStep || sec / 30,
             delta = 0,
             lag = 0,
-            then = performance.now(),
+            now = performance.now(),
+            then = now,
             beginning = then,
             fpsFilterStrength = options.fpsFilterStrength || 20,
             frameTime = 0,
@@ -28,12 +29,13 @@
             input = options.input,
             rafId;
 
-        function frame(now) {
+        function frame() {
             rafId = requestAnimationFrame(frame);
+            input();
+            now = performance.now();
             delta = now - then;
             then = now;
             lag += Math.min(sec, delta);
-            input();
             while (lag >= slowStep) {
                 lag -= slowStep;
                 update(updateTimeStep/slowStep);
