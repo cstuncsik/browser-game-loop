@@ -63,7 +63,7 @@ var loop = createGameLoop({
 | **slow**              | Number   | 1               | *Slow motion coefficient (the bigger the slower)* |
 | **input**             | Function | N/A             | *This function is responsible for processing input* |
 | **update**            | Function(updateTimeStep:Number) | N/A         | *This function is responsible for updating game objects' properties, physics etc...* |
-| **render**            | Function | N/A             | *This function is responsible for drawing game objects* |
+| **render**            | Function(interpolation:Number) | N/A             | *This function is responsible for drawing game objects* |
 
 #### Returned *object*
 
@@ -92,10 +92,18 @@ loop.setSlow(2);
 
 [The Curious Case of Casey and The Clearly Deterministic Contraptions](http://gamesfromwithin.com/casey-and-the-clearly-deterministic-contraptions)
 
-[GAFFER ON GAMES - Fix Your Timestep!](http://gafferongames.com/game-physics/fix-your-timestep/)
+[Fix Your Timestep!](http://gafferongames.com/game-physics/fix-your-timestep/)
 
 [A Detailed Explanation of JavaScript Game Loops and Timing](http://www.isaacsukin.com/news/2015/01/detailed-explanation-javascript-game-loops-and-timing)
 
-[Game Loop](http://gameprogrammingpatterns.com/game-loop.html)
+[Game Programming Patterns - Game Loop](http://gameprogrammingpatterns.com/game-loop.html)
+
+[Interpolated Physics Rendering](http://kirbysayshi.com/2013/09/24/interpolated-physics-rendering.html)
+
+[GAME TIMERS: ISSUES AND SOLUTIONS.](http://fabiensanglard.net/timer_and_framerate/)
+
+[Game loops - Basic theory](http://svanimpe.be/blog/game-loops.html)
+
+[To multiply with delta time or not to multiply with delta time?](http://www.learn-cocos2d.com/2013/10/game-engine-multiply-delta-time-or-not/)
 
 

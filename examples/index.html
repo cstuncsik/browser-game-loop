@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <style>
         #box {
-            position: absolute; top: 10px; left: 10px; height: 50px; width: 50px; background-color: red;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            height: 50px;
+            width: 50px;
+            background-color: red;
         }
+
         #fpsDisplay {
-            position: absolute; top: 70px; left: 10px;"
+            position: absolute;
+            top: 70px;
+            left: 10px;
+        "
         }
+
         #elapsedTimeDisplay {
-            position: absolute; top: 90px; left: 10px;"
+            position: absolute;
+            top: 90px;
+            left: 10px;
+        "
         }
     </style>
     <title>Browser Game Loop</title>
@@ -23,7 +36,8 @@
 <script>
 
     var box = document.getElementById('box'),
-        boxRotation = 0,
+        prevBoxRotation = 0,
+        currBoxRotation = 0,
         velocity = 5,
         direction = 1,
         mouseDown = false,
@@ -37,11 +51,11 @@
         render: render
     });
 
-    document.addEventListener('mousedown', function(){
+    document.addEventListener('mousedown', function () {
         mouseDown = true;
     });
 
-    document.addEventListener('mouseup', function(){
+    document.addEventListener('mouseup', function () {
         mouseDown = false;
     });
 
@@ -54,11 +68,13 @@
     }
 
     function update(step) {
-        boxRotation += step*velocity*direction;
+        prevBoxRotation = currBoxRotation;
+        currBoxRotation += step * velocity * direction;
     }
 
-    function render() {
-        box.style.transform = 'rotate('+boxRotation+'deg)';
+    function render(interp) {
+        var interpolatedBoxRotation = (currBoxRotation * interp) + (prevBoxRotation * (1 - interp));
+        box.style.transform = 'rotate(' + interpolatedBoxRotation + 'deg)';
         fpsDisplay.textContent = Math.round(loop.getFps()) + ' FPS';
         elapsedTimeDisplay.textContent = Math.round(loop.getElapsedTime()) + ' s';
     }

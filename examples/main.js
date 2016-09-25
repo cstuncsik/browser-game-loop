@@ -1,7 +1,8 @@
 requirejs(['../src/gameLoop'], function (createLoop) {
 
     var box = document.getElementById('box'),
-        boxRotation = 0,
+        prevBoxRotation = 0,
+        currBoxRotation = 0,
         velocity = 5,
         direction = 1,
         mouseDown = false,
@@ -32,11 +33,13 @@ requirejs(['../src/gameLoop'], function (createLoop) {
     }
 
     function update(step) {
-        boxRotation += step * velocity * direction;
+        prevBoxRotation = currBoxRotation;
+        currBoxRotation += step * velocity * direction;
     }
 
-    function render() {
-        box.style.transform = 'rotate(' + boxRotation + 'deg)';
+    function render(interp) {
+        var interpolatedBoxRotation = (currBoxRotation * interp) + (prevBoxRotation * (1 - interp));
+        box.style.transform = 'rotate(' + interpolatedBoxRotation + 'deg)';
         fpsDisplay.textContent = Math.round(loop.getFps()) + ' FPS';
         elapsedTimeDisplay.textContent = Math.round(loop.getElapsedTime()) + ' s';
     }

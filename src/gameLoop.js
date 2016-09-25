@@ -39,7 +39,7 @@
                 update(updateTimeStep/slowStep);
             }
             frameTime += (delta - frameTime) / fpsFilterStrength;
-            render();
+            render(lag / slowStep);
         }
 
         function start() {
