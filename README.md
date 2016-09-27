@@ -62,7 +62,7 @@ var loop = createGameLoop({
 | **fpsFilterStrength** | Number   | 20              | *How often should FPS measurement change (1 means every frame)* |
 | **slow**              | Number   | 1               | *Slow motion coefficient (the bigger the slower)* |
 | **input**             | Function | N/A             | *This function is responsible for processing input* |
-| **update**            | Function(updateTimeStep:Number) | N/A         | *This function is responsible for updating game objects' properties, physics etc...* |
+| **update**            | Function(step:Number) | N/A         | *This function is responsible for updating game objects' properties, physics etc...* |
 | **render**            | Function(interpolation:Number) | N/A             | *This function is responsible for drawing game objects* |
 
 #### Returned *object*

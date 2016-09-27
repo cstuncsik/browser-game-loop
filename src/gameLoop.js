@@ -38,7 +38,7 @@
             lag += Math.min(sec, delta);
             while (lag >= slowStep) {
                 lag -= slowStep;
-                update(updateTimeStep/slowStep);
+                update(updateTimeStep / slowStep);
             }
             frameTime += (delta - frameTime) / fpsFilterStrength;
             render(lag / slowStep);
@@ -46,7 +46,7 @@
 
         function start() {
             then = performance.now();
-            if(!first){
+            if (!first) {
                 first = true;
                 beginning = then;
             }
@@ -65,7 +65,7 @@
             return (then - beginning) / sec;
         }
 
-        function setSlow(slow){
+        function setSlow(slow) {
             slowStep = slow * updateTimeStep;
         }
 
