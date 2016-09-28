@@ -38,7 +38,7 @@
             lag += Math.min(sec, delta);
             while (lag >= slowStep) {
                 lag -= slowStep;
-                update(updateTimeStep / slowStep);
+                update(updateTimeStep);
             }
             frameTime += (delta - frameTime) / fpsFilterStrength;
             render(lag / slowStep);
@@ -65,8 +65,13 @@
             return (then - beginning) / sec;
         }
 
-        function setSlow(slow) {
+        function setSlow(s) {
+            slow = s;
             slowStep = slow * updateTimeStep;
+        }
+
+        function getSlow() {
+            return slow;
         }
 
         return {
@@ -74,7 +79,8 @@
             stop: stop,
             getFps: getFps,
             getElapsedTime: getElapsedTime,
-            setSlow: setSlow
+            setSlow: setSlow,
+            getSlow: getSlow
         };
     }
 }));

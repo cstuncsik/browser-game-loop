@@ -73,6 +73,7 @@ loop.stop();
 loop.getFps();
 loop.getElapsedTime();
 loop.setSlow(2);
+loop.getSlow();
 ```
 
 |                    |          |          |
@@ -83,6 +84,7 @@ loop.setSlow(2);
 | **getFps**         | Function | *Get FPS* |
 | **getElapsedTime** | Function | *Get elapsed time* |
 | **setSlow**        | Function(slow:Number) | *Set slow motion coefficient* |
+| **getSlow**        | Function | *Get slow motion coefficient* |
 
 #### Inspiring blogs, posts
 

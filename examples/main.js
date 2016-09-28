@@ -3,14 +3,14 @@ requirejs(['../src/gameLoop'], function (createLoop) {
     var box = document.getElementById('box'),
         prevBoxRotation = 0,
         currBoxRotation = 0,
-        velocity = 5,
+        velocity = 0.05,
         direction = 1,
         mouseDown = false,
         fpsDisplay = document.getElementById('fpsDisplay'),
         elapsedTimeDisplay = document.getElementById('elapsedTimeDisplay');
 
     var loop = createLoop({
-        updateTimeStep: 1000 / 30,
+        updateTimeStep: 1000 / 60,
         input: input,
         update: update,
         render: render
