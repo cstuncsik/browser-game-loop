@@ -28,7 +28,7 @@
     "commitizen": "^2.8.6",
     "cz-conventional-changelog": "^1.2.0",
     "semantic-release": "^4.3.5",
-    "uglify-js": "^2.7.3"
+    "uglify-js": "^2.7.4"
   },
   "config": {
     "commitizen": {
